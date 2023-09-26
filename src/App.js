@@ -2,6 +2,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Cards from './components/Cards';
+import Card from './components/Card';
 
 function App() {
 
@@ -10,6 +11,13 @@ function App() {
     {id: 2,item : 'Jeans',price : 22},
     {id: 3,item : 'Shorts',price : 19},
     {id: 4,item : 'Kurtas',price : 15},
+  ]
+  
+  const inStocks = [
+    {id: 1,item : 'Shoes',price : 10, 'stock' : 22},
+    {id: 2,item : 'Jeans',price : 22, 'stock' : 8},
+    {id: 3,item : 'Shorts',price : 19, 'stock' : 67},
+    {id: 4,item : 'Kurtas',price : 15, 'stock' : 16},
   ]
 
   return (
@@ -38,6 +46,15 @@ function App() {
             <Cards key={product.id} title={product.item} price={product.price} ></Cards>
           ))
         }
+       </div>
+       {/* ------------------------------------------------------------- */}
+       <h2>Use case of states and props(using arrays and maps) in react</h2>
+      <div style={{display:'flex',justifyContent:'space-around'}}>
+      {
+        inStocks.map((product)=>(
+          <Card key={product.id} title={product.item} price={product.price} stock={product.stock} ></Card>
+        ))
+      }
       </div>
       <Footer></Footer>
     </div>
